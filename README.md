@@ -6,7 +6,7 @@ This repository contains gRPC procedures
 
 ## Generate go files
 
-Firtsly check is lib exist `protoc-gen-go` with command
+Firstly check is lib exist `protoc-gen-go` with command
 
 ```shell
 protoc --version

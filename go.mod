@@ -1,4 +1,4 @@
-module github.com/MrMihen13/Finance_Protos
+module github.com/MrMihen13/finance-protos
 
 go 1.22.2
 
