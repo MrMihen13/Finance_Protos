@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package profile;
+
+option go_package = "profile/profile;profile";
+
+service Profile {
+  rpc Create(RegisterRequest) returns (ProfileItem);
+  rpc Get(GetRequest) returns (ProfileItem);
+  rpc Update(UpdateRequest) returns (ProfileItem);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+enum status_type {
+  SUCCESS = 0;
+  FAILED = 1;
+}
+
+message ProfileItem {
+  string uuid = 1;
+  string email = 2;
+}
+
+
+message RegisterRequest {
+  string email = 1;
+}
+
+message GetRequest {
+  string uuid = 1;
+  string email = 2;
+}
+
+message UpdateRequest {
+  string uuid = 1;
+  string email = 2;
+}
+
+message DeleteRequest {
+  string uuid = 1;
+  string email = 2;
+}
+
+message DeleteResponse {
+  status_type status = 1;
+}
