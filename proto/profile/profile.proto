@@ -27,17 +27,15 @@ message RegisterRequest {
 
 message GetRequest {
   string uuid = 1;
-  string email = 2;
 }
 
 message UpdateRequest {
   string uuid = 1;
-  string email = 2;
+  string new_email = 2;
 }
 
 message DeleteRequest {
   string uuid = 1;
-  string email = 2;
 }
 
 message DeleteResponse {
