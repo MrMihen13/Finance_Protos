@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package accounts;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "accounts/transactions;accounts";
+
+service Transactions {
+  rpc CreateTransaction(CreateTransactionRequest) returns(TransactionItem);
+  rpc GetTransaction(GetTransactionRequest) returns(TransactionItem);
+  rpc GetTransactionsList(GetTransactionsListRequest) returns(TransactionsList);
+  rpc UpdateTransaction(UpdateTransactionRequest) returns(TransactionItem);
+  rpc DeleteTransaction(DeleteTransactionRequest) returns(google.protobuf.Empty);
+}
+
+message TransactionItem{
+  string uuid = 1;
+  string user_id = 2;
+
+  string debit_id = 3; // Идентификатор сточа списания
+  string credit_id = 4; // идентификатор счета зачисления
+
+  google.protobuf.Timestamp data = 5;
+
+  uint64 amount = 6;
+}
+
+message TransactionsList{
+  repeated TransactionItem items = 1;
+}
+
+message CreateTransactionRequest{
+  string uuid = 1;
+  string user_id = 2;
+
+  string debit_id = 3; // Идентификатор сточа списания
+  string credit_id = 4; // идентификатор счета зачисления
+
+  google.protobuf.Timestamp data = 5;
+
+  uint64 amount = 6;
+}
+
+message GetTransactionRequest{
+  string uuid = 1;
+  string user_id = 2;
+}
+
+message GetTransactionsListRequest{
+  string user_id = 1;
+
+  google.protobuf.Timestamp start_timestamp = 2;
+  google.protobuf.Timestamp end_timestamp = 3;
+
+  string debit_id = 4; // Идентификатор сточа списания
+  string credit_id = 5; // идентификатор счета зачисления
+}
+
+message UpdateTransactionRequest{
+  string uuid = 1;
+  string user_id = 2;
+
+  string debit_id = 3; // Идентификатор сточа списания
+  string credit_id = 4; // идентификатор счета зачисления
+
+  google.protobuf.Timestamp data = 5;
+
+  uint64 amount = 6;
+}
+
+message DeleteTransactionRequest{
+  string uuid = 1;
+  string user_id = 2;
+}

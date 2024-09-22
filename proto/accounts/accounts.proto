@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package accounts;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "accounts/accounts;accounts";
+
+service Accounts {
+  rpc CreateAccount(CreateAccountRequest) returns (AccountItem);
+  rpc GetAccount(GetAccountRequest) returns (AccountItem);
+  rpc GetAccountsList(GetAccountsListRequest) returns (AccountsList);
+  rpc UpdateAccount(UpdateAccountRequest) returns (AccountItem);
+  rpc DeleteAccount(DeleteAccountRequest) returns (google.protobuf.Empty);
+}
+
+message AccountItem {
+  string uuid = 1;
+  string user_id = 2;
+
+  string name = 3;
+  uint64 balance = 4;
+}
+
+message AccountsList{
+  repeated AccountItem items = 1;
+}
+
+message CreateAccountRequest{
+  string uuid = 1;
+  string user_id = 2;
+
+  string name = 3;
+  uint64 balance = 4;
+}
+
+message GetAccountRequest{
+  string uuid = 1;
+  string user_id = 2;
+}
+
+message GetAccountsListRequest{
+  string user_id = 1;
+}
+
+message UpdateAccountRequest{
+  string uuid = 1;
+  string user_id = 2;
+
+  string name = 3;
+}
+
+message DeleteAccountRequest{
+  string uuid = 1;
+  string user_id = 2;
+}
