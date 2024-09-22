@@ -19,7 +19,7 @@ message AccountItem {
   string user_id = 2;
 
   string name = 3;
-  uint64 balance = 4;
+  double balance = 4;
 }
 
 message AccountsList{
@@ -31,7 +31,7 @@ message CreateAccountRequest{
   string user_id = 2;
 
   string name = 3;
-  uint64 balance = 4;
+  double balance = 4;
 }
 
 message GetAccountRequest{
