@@ -16,7 +16,7 @@ service Transactions {
 }
 
 message TransactionItem{
-  string uuid = 1;
+  string id = 1;
   string user_id = 2;
 
   string debit_id = 3; // Идентификатор сточа списания
@@ -32,7 +32,7 @@ message TransactionsList{
 }
 
 message CreateTransactionRequest{
-  string uuid = 1;
+  string id = 1;
   string user_id = 2;
 
   string debit_id = 3; // Идентификатор сточа списания
@@ -44,7 +44,7 @@ message CreateTransactionRequest{
 }
 
 message GetTransactionRequest{
-  string uuid = 1;
+  string id = 1;
   string user_id = 2;
 }
 
@@ -59,7 +59,7 @@ message GetTransactionsListRequest{
 }
 
 message UpdateTransactionRequest{
-  string uuid = 1;
+  string id = 1;
   string user_id = 2;
 
   string debit_id = 3; // Идентификатор сточа списания
@@ -71,6 +71,6 @@ message UpdateTransactionRequest{
 }
 
 message DeleteTransactionRequest{
-  string uuid = 1;
+  string id = 1;
   string user_id = 2;
 }
